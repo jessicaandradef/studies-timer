@@ -4,9 +4,11 @@ import style from "./form.module.scss";
 import ITask from "../../types/ITask";
 import { v4 as uuidv4 } from "uuid";
 
-const Form: React.FC<{
+interface Props {
   setTasks: React.Dispatch<React.SetStateAction<ITask[]>>;
-}> = ({ setTasks }) => {
+}
+
+const Form = ({ setTasks }: Props) => {
   const [task, setTask] = useState<string>("");
   const [time, setTime] = useState<string>("00:00:00");
 
