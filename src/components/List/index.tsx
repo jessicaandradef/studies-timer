@@ -12,7 +12,7 @@ const List = ({ tasks, selectTask }: Props) => {
     <aside className={style.taskList}>
       <h2>Studies of the day</h2>
       <ul>
-        {tasks.map((item, index) => (
+        {tasks.map((item) => (
           <Item selectTask={selectTask} {...item} key={item.id} />
         ))}
       </ul>
@@ -21,9 +21,3 @@ const List = ({ tasks, selectTask }: Props) => {
 };
 
 export default List;
-
-/*task={item.task}
-            time={item.time}
-            completed={item.completed}
-            selected={item.selected}
-            id={item.id}*/
