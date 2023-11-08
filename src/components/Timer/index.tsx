@@ -18,13 +18,22 @@ const Timer = ({ selected }: Props) => {
     }
   }, [selected]);
 
+  const decreaseTime = (counter: number = 0) => {
+    setTimeout(() => {
+      if (counter > 0) {
+        setTime(counter - 1);
+        return decreaseTime(counter - 1);
+      }
+    }, 1000);
+  };
+
   return (
     <div className={style.timer}>
       <p className={style.title}>Choose a card and start the timer</p>
       <div className={style.watchWrapper}>
         <Watch time={time} />
       </div>
-      <Button>Start!</Button>
+      <Button onClick={() => decreaseTime(time)}>Start!</Button>
     </div>
   );
 };

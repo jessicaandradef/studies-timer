@@ -1,11 +1,12 @@
 import style from "./button.module.scss";
 
 const Button: React.FC<{
-  type?: "button" | "submit" | "reset";
+  type?: "button" | "submit" | "reset" | undefined;
+  onClick?: () => void;
   children: React.ReactNode;
-}> = ({ type, children }) => {
+}> = ({ type, children, onClick }) => {
   return (
-    <button type={type} className={style.button}>
+    <button onClick={onClick} type={type} className={style.button}>
       {children}
     </button>
   );
